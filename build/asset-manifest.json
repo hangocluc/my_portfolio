@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/my_portfolio/static/css/main.7aedc41a.css",
+    "main.js": "/my_portfolio/static/js/main.809a5e05.js",
+    "static/media/project.png": "/my_portfolio/static/media/project.91c3c6b03e7978f60d80.png",
+    "static/media/Dang-Xuan-Tung-Alex-CV.pdf": "/my_portfolio/static/media/Dang-Xuan-Tung-Alex-CV.240b5dc88a2e54f6c95c.pdf",
+    "static/media/mf-avatar.svg": "/my_portfolio/static/media/mf-avatar.7b735e86b418292c156bc9a26437d951.svg",
+    "index.html": "/my_portfolio/index.html",
+    "main.7aedc41a.css.map": "/my_portfolio/static/css/main.7aedc41a.css.map",
+    "main.809a5e05.js.map": "/my_portfolio/static/js/main.809a5e05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7aedc41a.css",
+    "static/js/main.809a5e05.js"
+  ]
+}

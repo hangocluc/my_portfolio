@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
-
 import sr from '../../utils/scrollReveal';
 import "./skills.styles.css";
 
 const Skills = props => {
-
     useEffect(() => {
         sr.reveal('.skills__subtitle',{}); 
         sr.reveal('.skills__text',{}); 
-        sr.reveal('.skills__data',{interval: 200}); 
-        sr.reveal('.skills__img',{delay: 600});
+        sr.reveal('.skills__data',{interval: 100}); 
+        sr.reveal('.skills__img',{delay: 200});
     });
 
     return (
@@ -17,95 +15,87 @@ const Skills = props => {
             <h2 className="section-title">Skills</h2>
             <div className="skills__container bd-grid">
                 <div className="skills__frontend">
-                    <h2 className="skills__subtitle">Front End</h2>
-                    <p className="skills__text">I have been using JavaScript and its libraries, frameworks <strong>jQuery, React, Redux, Node</strong> for 4 years.</p>
+                    <h3 className="skills__subtitle">Front End</h3>
+                    <p className="skills__text">I have been using JavaScript and its libraries, frameworks <strong>jQuery, React, Redux</strong> for 1 year.</p>
                     <div className="skills__data">
                         <div className="skills__names">
-                            <i className="bx bxl-jquery skills__icon"></i>
-                            <span className="skills__name">JQUERY</span>
+                            <i className="bx bxl-html5 skills__icon"></i>
+                            <span className="skills__name">HTML</span>
                         </div>
-                        <div>
-                            <span className="skills__percentage">85%</span>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '85%' }}>85%</div>
                         </div>
-                        <div className="skills__bar skills__jquery"></div>
+                    </div>
+                    <div className="skills__data">
+                        <div className="skills__names">
+                            <i className="bx bxl-css3 skills__icon"></i>
+                            <span className="skills__name">CSS</span>
+                        </div>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '75%' }}>75%</div>
+                        </div>
                     </div>
                     <div className="skills__data">
                         <div className="skills__names">
                             <i className="bx bxl-react skills__icon"></i>
-                            <span className="skills__name">REACT</span>
+                            <span className="skills__name">React JS</span>
                         </div>
-                        <div>
-                            <span className="skills__percentage">85%</span>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '85%' }}>85%</div>
                         </div>
-                        <div className="skills__bar skills__react"></div>
-                    </div>
-                    <div className="skills__data">
-                        <div className="skills__names">
-                            <i className="bx bxl-redux skills__icon"></i>
-                            <span className="skills__name">REDUX</span>
-                        </div>
-                        <div>
-                            <span className="skills__percentage">75%</span>
-                        </div>
-                        <div className="skills__bar skills__redux"></div>
-                    </div>
-                    <div className="skills__data">
-                        <div className="skills__names">
-                            <i className="bx bxl-nodejs skills__icon"></i>
-                            <span className="skills__name">NODEJS</span>
-                        </div>
-                        <div>
-                            <span className="skills__percentage">80%</span>
-                        </div>
-                        <div className="skills__bar skills__nodejs"></div>
                     </div>
                 </div>
                 <div className="skills__backend">
-                    <h2 className="skills__subtitle">Back End</h2>
-                    <p className="skills__text">I developed the projects during my studying by using <strong>Java, Spring framework and SQL tools.</strong></p>
+                    <h3 className="skills__subtitle">Mobile</h3>
+                    <p className="skills__text">I have developed mobile projects using <strong>Flutter, React Native</strong>, and <strong>iOS</strong>.</p>
                     <div className="skills__data">
                         <div className="skills__names">
-                            <i className='bx bxl-spring-boot skills__icon'></i>
-                            <span className="skills__name">SPRING BOOT</span>
+                            <i className="bx bxl-flutter skills__icon"></i>
+                            <span className="skills__name">Flutter</span>
                         </div>
-                        <div>
-                            <span className="skills__percentage">50%</span>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '80%' }}>4 Years</div>
                         </div>
-                        <div className="skills__bar skills__spring-boot"></div>
                     </div>
                     <div className="skills__data">
                         <div className="skills__names">
-                            <i className='bx bx-data skills__icon'></i>
-                            <span className="skills__name">SQL</span>
+                            {/* <i className="bx bxl-react skills__icon"></i> */}
+                            <span className="skills__name">React Native</span>
                         </div>
-                        <div>
-                            <span className="skills__percentage">75%</span>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '100%' }}>6 Months</div>
                         </div>
-                        <div className="skills__bar skills__sql"></div>
+                    </div>
+                    <div className="skills__data">
+                        <div className="skills__names">
+                            <i className="bx bxl-apple skills__icon"></i>
+                            <span className="skills__name">iOS</span>
+                        </div>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '70%' }}>3 Months</div>
+                        </div>
                     </div>
                 </div>
                 <div className="skills__others">
-                    <h2 className="skills__subtitle">Other Tools</h2>
-                    <p className="skills__text">Proficient using <strong>GitHub</strong> for my collaborating with the teams. And get used to other DevOpt tools.</p>
+                    <h3 className="skills__subtitle">Other Tools</h3>
+                    <p className="skills__text">Proficient in using <strong>GitHub</strong> for team collaboration and familiar with other DevOps tools.</p>
                     <div className="skills__data">
                         <div className="skills__names">
                             <i className="bx bxl-github skills__icon"></i>
-                            <span className="skills__name">GITHUB</span>
+                            <span className="skills__name">GitHub</span>
                         </div>
-                        <div>
-                            <span className="skills__percentage">75%</span>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '75%' }}>75%</div>
                         </div>
-                        <div className="skills__bar skills__github"></div>
                     </div>
                     <div className="skills__data">
                         <div className="skills__names">
-                            <i className="bx bxl-amazon skills__icon"></i>
-                            <span className="skills__name">AWS</span>
+                            <i className="bx bxl-firebase skills__icon"></i>
+                            <span className="skills__name">Firebase</span>
                         </div>
-                        <div>
-                            <span className="skills__percentage">20%</span>
+                        <div className="skills__bar-container">
+                            <div className="skills__percentage" style={{ width: '80%' }}>80%</div>
                         </div>
-                        <div className="skills__bar skills__aws"></div>
                     </div>
                 </div>
             </div>

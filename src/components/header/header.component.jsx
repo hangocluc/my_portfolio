@@ -4,8 +4,13 @@ import React, { useState } from 'react';
 import './header.styles.css';
 
 const Header = props => {
-    const [ showMenu, setShowMenu ] = useState("nav__menu");
-    const [ menuItems, setMenuItems ] = useState(["nav__link active","nav__link","nav__link","nav__link"]);
+    const [showMenu, setShowMenu] = useState("nav__menu");
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleMenuItemClick = (index) => {
+        setActiveIndex(index);
+        setShowMenu("nav__menu");
+    };
 
     return (
         <header className="l-header">
@@ -16,25 +21,49 @@ const Header = props => {
                 <div className={showMenu} id="nav-menu">
                     <ul className="nav__list">
                         <li className="nav__item">
-                            <a href="#home" className={menuItems[0]} onClick={() => { setMenuItems(["nav__link active","nav__link","nav__link","nav__link"]); setShowMenu("nav__menu")} }>Home</a>
+                            <a 
+                                href="#home" 
+                                className={`nav__link ${activeIndex === 0 ? 'active' : ''}`} 
+                                onClick={() => handleMenuItemClick(0)}
+                            >
+                                Home
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a href="#about" className={menuItems[1]} onClick={() => { setMenuItems(["nav__link active","nav__link","nav__link","nav__link"]); setShowMenu("nav__menu")} }>About</a>
+                            <a 
+                                href="#about" 
+                                className={`nav__link ${activeIndex === 1 ? 'active' : ''}`} 
+                                onClick={() => handleMenuItemClick(1)}
+                            >
+                                About
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a href="#skills" className={menuItems[2]} onClick={() => { setMenuItems(["nav__link active","nav__link","nav__link","nav__link"]); setShowMenu("nav__menu")} }>Skills</a>
+                            <a 
+                                href="#skills" 
+                                className={`nav__link ${activeIndex === 2 ? 'active' : ''}`} 
+                                onClick={() => handleMenuItemClick(2)}
+                            >
+                                Skills
+                            </a>
                         </li>
                         <li className="nav__item">
-                            <a href="#contact" className={menuItems[3]} onClick={() => { setMenuItems(["nav__link active","nav__link","nav__link","nav__link"]); setShowMenu("nav__menu")} }>Contact</a>
+                            <a 
+                                href="#contact" 
+                                className={`nav__link ${activeIndex === 3 ? 'active' : ''}`} 
+                                onClick={() => handleMenuItemClick(3)}
+                            >
+                                Contact
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div className="nav__toggle" id="nav-toggle" onClick={() => (showMenu === "nav__menu") ? setShowMenu("nav__menu show") : setShowMenu("nav__menu")}>
+                <div className="nav__toggle" id="nav-toggle" onClick={() => setShowMenu(showMenu === "nav__menu" ? "nav__menu show" : "nav__menu")}>
                     <i className="bx bx-menu"></i>
                 </div>
             </nav>
         </header>
-    )
-}
+    );
+};
 
 export default Header;
