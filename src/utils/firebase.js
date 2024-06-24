@@ -3,12 +3,13 @@ import firebase from 'firebase';
 // Your web app's Firebase configuration
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyC-4zz7Tlu9djO64PHiwBocteVYq9-idsY",
-    authDomain: "portfolio-contact-d9fad.firebaseapp.com",
-    projectId: "portfolio-contact-d9fad",
-    storageBucket: "portfolio-contact-d9fad.appspot.com",
-    messagingSenderId: "655017726069",
-    appId: "1:655017726069:web:ece0492bb8bf774fd7283c"
+    apiKey: "AIzaSyCpXg3zV4YAD_jVlc6MptgNTgNIhufgB2o",
+  authDomain: "alexdang-portfolio.firebaseapp.com",
+  projectId: "alexdang-portfolio",
+  storageBucket: "alexdang-portfolio.appspot.com",
+  messagingSenderId: "929538604758",
+  appId: "1:929538604758:web:66f7e409932eb3e8e15377",
+  measurementId: "G-VB64RHT3T6"
 });
 
 const db = firebaseApp.firestore();

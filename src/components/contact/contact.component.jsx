@@ -1,46 +1,62 @@
-import React, { useState, useEffect } from 'react';
-
-import sr from '../../utils/scrollReveal';
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+import { Toaster, toast } from 'react-hot-toast';
 import db from "../../utils/firebase";
 import "./contact.styles.css";
 
-const Contact = props => {
-
-    useEffect(() => {
-        sr.reveal('.contact__information',{delay: 200})
-        sr.reveal('.contact__input',{interval: 200}); 
-    });
-
-    const [message,setMessage] = useState({
+const Contact = () => {
+    const [message, setMessage] = useState({
         name: "",
         email: "",
         content: ""
     });
+    const [loading, setLoading] = useState(false);
 
-    const send = () => {
-        db.collection("contacts").add({
-            name: message.name,
-            email: message.email,
+    const sendEmailAndSaveToDB = (e) => {
+        e.preventDefault();
+
+        if (!message.name || !message.email || !message.content) {
+            toast.error("Name, email, and message content cannot be empty!");
+            return;
+        }
+
+        setLoading(true);
+
+        const templateParams = {
+            from_name: message.name,
+            reply_to: message.email,
             message: message.content,
-            date: new Date()
-        }).then( () => {
-            // setAlert({
-            //     open: true,
-            //     message: "Message has been submitted!"
-            // });
-        }).catch( err => {
-            // setAlert({
-            //     open: true,
-            //     message: err.message
-            // });
-        });
+            to_name: "Alex Dang",
+        };
 
-        setMessage({
-            name: "",
-            email: "",
-            content: ""
-        });
-    }
+        // Send email with EmailJS
+        emailjs.send('alex-dang_my_portfolio', 'template_alex-portfolio', templateParams, 'bpHV1ByfBuWaoZQS7')
+            .then((response) => {
+                toast.success("Message has been submitted and email sent!");
+
+                // Save to Firestore with document ID as message.name
+                db.collection("contacts").doc(message.name).set({
+                    name: message.name,
+                    email: message.email,
+                    message: message.content,
+                    date: new Date()
+                }).then(() => {
+                    setMessage({
+                        name: "",
+                        email: "",
+                        content: ""
+                    });
+                    setLoading(false);
+                }).catch(err => {
+                    toast.error("Failed to save message to database: " + err.message);
+                    setLoading(false);
+                });
+
+            }, (err) => {
+                toast.error("Failed to send email: " + err.text);
+                setLoading(false);
+            });
+    };
 
     return (
         <section className="contact section" id="contact">
@@ -58,21 +74,43 @@ const Contact = props => {
                         <i className='bx bx-envelope contact__icon' ></i>
                         <div>
                             <h3 className="contact__title">E-mail</h3>
-                            <span className="contact__subtitle">ductung01112001@mail.com</span>
+                            <span className="contact__subtitle">AlexDangDev@gmail.com</span>
                         </div>
                     </div>
                 </div>
-                <form action="" className="contact__form">
-                    <input type="text" placeholder="Name" className="contact__input" value={message.name} onChange={ e => setMessage({ ...message, name: e.target.value })} />
-                    <input type="mail" placeholder="Email" className="contact__input" value={message.email} onChange={ e => setMessage({ ...message, email: e.target.value })} />
-                    <textarea name="" id="" cols="0" rows="10" className="contact__input" value={message.content} onChange={ e => setMessage({ ...message, content: e.target.value })} ></textarea>
+                <form className="contact__form" onSubmit={sendEmailAndSaveToDB}>
+                    <input 
+                        type="text" 
+                        placeholder="Your name" 
+                        className="contact__input" 
+                        value={message.name} 
+                        onChange={e => setMessage({ ...message, name: e.target.value })} 
+                    />
+                    <input 
+                        type="email" 
+                        placeholder="Your Email" 
+                        className="contact__input" 
+                        value={message.email} 
+                        onChange={e => setMessage({ ...message, email: e.target.value })} 
+                    />
+                    <textarea 
+                        cols="0" 
+                        rows="10" 
+                        className="contact__input" 
+                        placeholder='Tell me here'
+                        value={message.content} 
+                        onChange={e => setMessage({ ...message, content: e.target.value })} 
+                    />
                     <div className="contact__button__container">
-                        <a href="#contact" className="contact__button button" onClick={() => send()}>Send</a>
+                        <button type="submit" className="contact__button button" disabled={loading}>
+                            {loading ? 'Sending...' : 'Send'}
+                        </button>
                     </div>
                 </form>
             </div>
+            <Toaster />
         </section>
-    )
-}
+    );
+};
 
 export default Contact;

@@ -5,8 +5,8 @@ import './about.styles.css';
 const About = props => {
     useEffect(() => {
         sr.reveal('.about__img',{}); 
-        sr.reveal('.about__subtitle',{delay: 400}); 
-        sr.reveal('.about__text',{delay: 400}); 
+        sr.reveal('.about__subtitle',{delay: 200}); 
+        sr.reveal('.about__text',{delay: 200}); 
     });
 
     const onlinePicture = "https://media.licdn.com/dms/image/D5603AQHwuwahzqJn5A/profile-displayphoto-shrink_800_800/0/1711608914970?e=1724284800&v=beta&t=2H51Id3tYJDS4V_ibYyCVBwHVNXvJfe0TzUZX912ZVo";

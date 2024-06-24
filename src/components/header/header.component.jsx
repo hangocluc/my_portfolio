@@ -1,11 +1,30 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase/app';
+import db from "../../utils/firebase";
 import './header.styles.css';
 
-const Header = props => {
+const Header = () => {
     const [showMenu, setShowMenu] = useState("nav__menu");
     const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        countPageVisit();
+    }, []);
+
+    const countPageVisit = async () => {
+        const today = new Date().toISOString().split('T')[0]; // Lấy ngày hiện tại theo định dạng YYYY-MM-DD
+        const docRef = db.collection('pageVisits').doc(today);
+
+        try {
+            await docRef.set(
+                { count: firebase.firestore.FieldValue.increment(1) },
+                { merge: true }
+            );
+        } catch (error) {
+            console.error("Error counting page visit: ", error);
+        }
+    };
 
     const handleMenuItemClick = (index) => {
         setActiveIndex(index);
