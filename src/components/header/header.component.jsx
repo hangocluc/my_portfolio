@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
-import firebase from 'firebase/app';
 import db from "../../utils/firebase";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './header.styles.css';
+import axios from 'axios'; // Add axios for fetching IP
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState("nav__menu");
@@ -17,18 +17,24 @@ const Header = () => {
     }, []);
 
     const countPageVisit = async () => {
-        const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
-        const docRef = db.collection('pageVisits').doc(today);
-
         try {
+            const res = await axios.get('https://api.ipify.org?format=json');
+            const userIP = res.data.ip;
+
+            const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+            const docRef = db.collection('pageVisits').doc(today);
+
             await db.runTransaction(async (transaction) => {
                 const doc = await transaction.get(docRef);
                 let newCount = 1;
                 if (!doc.exists) {
-                    transaction.set(docRef, { count: newCount });
+                    transaction.set(docRef, { count: newCount, ips: [userIP] });
                 } else {
-                    newCount = doc.data().count + 1;
-                    transaction.update(docRef, { count: newCount });
+                    const data = doc.data();
+                    if (!data.ips.includes(userIP)) {
+                        newCount = data.count + 1;
+                        transaction.update(docRef, { count: newCount, ips: [...data.ips, userIP] });
+                    }
                 }
                 setTotalVisits(newCount);
             });
