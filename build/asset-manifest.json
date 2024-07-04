@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my_portfolio/static/css/main.383cfa74.css",
-    "main.js": "/my_portfolio/static/js/main.1ba8b423.js",
+    "main.js": "/my_portfolio/static/js/main.20071d0c.js",
     "static/media/Influencer_profile.png": "/my_portfolio/static/media/Influencer_profile.926c2d8c2f830dfcb034.png",
     "static/media/matching_book_now.png": "/my_portfolio/static/media/matching_book_now.50b00a429c7746cbb52e.png",
     "static/media/IF_blocked.png": "/my_portfolio/static/media/IF_blocked.ff97ead250757f2b7399.png",
@@ -12,10 +12,10 @@
     "static/media/mf-avatar.svg": "/my_portfolio/static/media/mf-avatar.7b735e86b418292c156bc9a26437d951.svg",
     "index.html": "/my_portfolio/index.html",
     "main.383cfa74.css.map": "/my_portfolio/static/css/main.383cfa74.css.map",
-    "main.1ba8b423.js.map": "/my_portfolio/static/js/main.1ba8b423.js.map"
+    "main.20071d0c.js.map": "/my_portfolio/static/js/main.20071d0c.js.map"
   },
   "entrypoints": [
     "static/css/main.383cfa74.css",
-    "static/js/main.1ba8b423.js"
+    "static/js/main.20071d0c.js"
   ]
 }
