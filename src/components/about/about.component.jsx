@@ -10,7 +10,7 @@ const About = props => {
     });
 
     const onlinePicture = "https://media.licdn.com/dms/image/D5603AQHwuwahzqJn5A/profile-displayphoto-shrink_800_800/0/1711608914970?e=1724284800&v=beta&t=2H51Id3tYJDS4V_ibYyCVBwHVNXvJfe0TzUZX912ZVo";
-    const resumeLink = "https://www.topcv.vn/xem-cv/BFMDBldWClMEAQ0JXFBQVA8BBVcHAQZVUlNTDQe94c";
+    const resumeLink = "https://www.topcv.vn/xem-cv/VAZTXAMFBFNTVlQADlEABARQBgZWVgcHBQVfAQ8998";
 
     return (
         <section className="about section" id="about">
@@ -23,7 +23,7 @@ const About = props => {
                         Hello everyone! Alex here. I'm a mobile application developer with around 4 years of experience. I specialize in Flutter, React Native, IOS, HTML, CSS, and JavaScript. I bring enthusiasm, creativity, and a positive attitude to cross-functional teamwork and English communication. Proficient in Agile methodologies, I ensure the timely delivery of high-quality projects while supporting team collaboration and continuous learning.
                     </p>
                     <div>
-                        <a href={resumeLink} target="_blank" rel="noopener noreferrer" className="about__button button">View Resume</a>
+                        <a href={resumeLink} target="_blank" rel="noopener noreferrer" className="about__button button">View My CV</a>
                     </div>
                 </div>
                 <div className="about__img"><img src={onlinePicture} alt="profile" /></div>
