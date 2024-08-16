@@ -2,7 +2,7 @@
   "name": "responsive-portfolio-v2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AlexDangCoder.github.io/my_portfolio",
+  "homepage": ".",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@testing-library/jest-dom": "^5.11.4",
