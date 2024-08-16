@@ -12,7 +12,7 @@ const About = (props) => {
   const onlinePicture =
     "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/436197285_428180243499236_7159850802168830838_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGj16Wl4r0jRTBMY9Yocx4hy3gWYiuQLuXLeBZiK5Au5XecGrAfuu2JFe42KRFpR7AU8bR54lLmmAuKi6NBkfXH&_nc_ohc=FUJle-adwFQQ7kNvgF3wvRr&_nc_ht=scontent.fhan5-2.fna&oh=00_AYDPHCOeVZtfjDhsi8N27HCvvGouw7I2kBGvBekGH6xVcQ&oe=66B46648";
   const resumeLink =
-    "https://www.topcv.vn/xem-cv/VAZTXAMFBFNTVlQADlEABARQBgZWVgcHBQVfAQ8998";
+    "https://www.topcv.vn/xem-cv/XVRXVANVVgcLAlcAWg5VAAVVBgFUBFUAAwBZVg728e";
 
   return (
     <section className="about section" id="about">
