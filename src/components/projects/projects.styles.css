@@ -2,7 +2,9 @@
   text-align: center;
 }
 .work__container {
+  display: grid;
   row-gap: 10rem;
+  justify-items: center;
 }
 .work__img {
   box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
@@ -15,10 +17,11 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Căn giữa các phần tử con */
+  text-align: center;
 }
 .size-img img {
-  object-fit: "cover";
+  object-fit: cover;
   border-radius: 2rem;
   height: 490px;
   width: 240px;
@@ -49,6 +52,8 @@
 .title {
   font-size: var(--h6-font-size);
   color: var(--first-color);
+  text-align: left; /* Căn trái */
+  margin-left: 20px;
 }
 .circle {
   width: 50px; /* Đường kính của hình tròn */
@@ -66,5 +71,7 @@
 .row {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem; /* Căn giữa theo chiều dọc */
+  justify-content: flex-start; /* Căn trái các mục trong .row */
+  margin-bottom: 1rem;
+  width: 100%; /* Căn giữa theo chiều dọc */
 }
